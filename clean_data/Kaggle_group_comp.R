@@ -35,7 +35,6 @@ stud.ques <- left_join(ques, l$students, by = c('questions_author_id' = 'student
 
 # Prepare to join answers to questions ------------------------------------
 
-dat <- left_join(pro.ans, stud.ques, by = c('answers_question_id' = 'questions_id'))
 
 # Clean 
 
