@@ -21,17 +21,17 @@ names(l) <- c('answers_scores', 'answers', 'comments', 'emails',
               'tag_users','tags')
 
 # Not sure about missing pieces
-answers <- left_join(l$answers, l$answers_scores, by = c('answers_id' = 'id'))
+answers <- inner_join(l$answers, l$answers_scores, by = c('answers_id' = 'id'))
 
 # Join the answers to the professionals, 10169 professionals answered questions out of 28152
-pro.ans <- left_join(answers, l$professionals, by = c('answers_author_id' = 'professionals_id'))
+pro.ans <- inner_join(answers, l$professionals, by = c('answers_author_id' = 'professionals_id'))
 
 
 # Form Questions to students dataset --------------------------------------------------
 
-ques <- left_join(l$questions, l$question_scores, by = c('questions_id' = 'id'))
+ques <- inner_join(l$questions, l$question_scores, by = c('questions_id' = 'id'))
 
-stud.ques <- left_join(ques, l$students, by = c('questions_author_id' = 'students_id'))
+stud.ques <- inner_join(ques, l$students, by = c('questions_author_id' = 'students_id'))
 
 # Prepare to join answers to questions ------------------------------------
 
